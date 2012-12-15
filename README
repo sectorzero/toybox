@@ -1,0 +1,19 @@
+Edit Worflow
+------------
+1. mkdir -p ~/toybox-container
+2. cd ~/toybox-container/
+3. git clone git://github.com/sectorzero/toybox.git
+4. git pull 
+5. dd if=toybox/reccy.enc | openssl enc -d -aes-256-cbc | tar xvjf -
+6. cd ~/toybox-container/reccy
+7. View/Edit/Commit contents
+8. ./cleanup
+9. cd ~/toybox-container
+10. tar cvjf - reccy | openssl enc -e -aes-256-cbc -salt | dd of=reccy.enc
+11. mv reccy.enc toybox
+12. cd ~/toybox-container/toybox
+13. git add; git commit
+14. git push
+15. cd ~/toybox-container
+16. srm -r -f -mz- -v reccy
+
